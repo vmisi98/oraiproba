@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ora</title>
+</head>
+<body onload="start()">
+    <div id="ora"></div>
+ <script>
+    const start=()=> {
+     let ma=new Date();
+     console.log(ma.getFullYear())
+     console.log(ma.getMonth())
+     console.log(ma.getDay())
+     console.log(ma.getHours())
+     let h=ma.getHours()
+     let m=ma.getMinutes() >10 ? ma.getMinutes() : "0"+ma.getMinutes();
+     let s=ma.getSeconds() >10 ? ma.getSeconds() : "0"+ma.getSeconds();
+     document.getElementById("ora") .innerHTML=h+" : "+m+" : "+s+" ";
+     setTimeout( ()=>start(),500);
+     }       
+     
+
+     
+
+ </script>   
+</body>
+</html>
