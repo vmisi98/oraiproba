@@ -1,5 +1,11 @@
 window.addEventListener('load' , lista)
+function init(){
+    lista();
+    document.querySelectorAll('img').forEach((obj)=>{
+        obj.addEventListener("click", ujablak)
 
+    })
+}
 function lista(){
 
     console.log(document.images.length)
@@ -10,5 +16,12 @@ function lista(){
 
 
     document.getElementById("fel").innerHTML=fotoTomb.reduce((s,obj)=>s+`"${obj.src}",` , "")
+
+}
+function ujablak(e){
+console.log(e.target)
+let kepObj=e.target
+let url=kepObj.getAttribute('src')
+window.open(url, 'Image')
 
 }

@@ -2,6 +2,7 @@ var kepek=["https://source.unsplash.com/pWkk7iiCoDM/400x300","https://source.uns
 
 var mem_kep=new Image();
 mem_kep.src=kepek[0]
+var index=0;
 
 window.addEventListener('load' , init)
 function init(){
@@ -14,6 +15,8 @@ document.getElementById("elore").addEventListener("click", setImage)
 const setImage=(e)=>{
     console.log(e.target.id)
     let irany=e.target.id
-    let index =irany=="elore" ?
-    
+     index =irany=="elore" ? (index+1)%kepek.length : ( index==0 ? kepek.length-1 : index-1)
+    mem_kep.src=kepek[index]
+    document.getElementById("kep").src=mem_kep.src
+
 }
