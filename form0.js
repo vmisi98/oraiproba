@@ -1,11 +1,15 @@
 window.addEventListener('load',init)
 
     function init(){
+        console.log("eltrolt sutik"+document.cookie)
+        document.getElementById("adatok").innerHTML=document.cookie
         document.getElementById("pont").addEventListener("change",pontotMutat)
         document.querySelectorAll("input[name=card]").forEach((e)=>e.addEventListener("keyup",ugrik))
         document.getElementById("szEv").addEventListener("focusout",eletkor)
     
         document.getElementById("elkuld").addEventListener("click",ellenoriz)
+
+        document.getElementById("torol").addEventListener("click", sutitTorol)
     }
     
     let hibak=[]
@@ -85,7 +89,18 @@ window.addEventListener('load',init)
         if(hibak.length>0){
              e.preventDefault();
              document.getElementById("hibalista").innerHTML=hibak.reduce((s,e)=>s+"<li>"+e+"</li>","")
+        }else{
+            //sutik letrehozasa
+            document.cookie="mail="+document.getElementById("email").value+"; experies=''";
+            document.cookie="pontErtek="+document.getElementById('pont').value+"; experies''";
+
+
         }
            
+    }
+    function sutitTorol(){
+        document.cookie='email="" ; expires='+new Date();
+        document.cookie='pontErtek="" ;expries='+new Date();
+        document.getElementById("adatok").innerHTML=document.cookie
     }
 
